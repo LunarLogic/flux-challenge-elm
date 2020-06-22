@@ -1,4 +1,4 @@
-module Roster exposing (Cell(..), Roster, Sith, add, empty)
+module Roster exposing (Cell(..), Roster, Sith, add, determineNextSithToFetch, empty)
 
 -- https://package.elm-lang.org/packages/elm/core/latest/Array
 
@@ -48,3 +48,8 @@ add sith roster =
 
     else
         roster
+
+
+determineNextSithToFetch : Roster -> ( Roster, Maybe Int )
+determineNextSithToFetch roster =
+    Debug.todo "Being implemented"
