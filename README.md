@@ -26,6 +26,12 @@ The backend server, responsible for serving siths & planets server:
 $ cd backend && yarn start
 ```
 
+## Formatting the Elm code
+
+`yarn format` formats the code using [elm-format](https://github.com/avh4/elm-format). You can set
+up [an editor integration](https://github.com/avh4/elm-format#editor-integration) so that your
+editor is going to run it automatically on save.
+
 ## Solution
 
 To view the complete solution to this challenge, start the servers and then go to

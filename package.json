@@ -9,7 +9,8 @@
     "node": ">=10.x"
   },
   "scripts": {
-    "start": "elm-live --port 8000 src/Main.elm -- --output=main.js --debug"
+    "start": "elm-live --port 8000 src/Main.elm -- --output=main.js --debug",
+    "format": "elm-format src tests --yes"
   },
   "private": true
 }
