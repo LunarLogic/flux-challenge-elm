@@ -64,5 +64,5 @@ determineNextSithToFetchTests =
                 Roster.empty
                     |> Roster.add sith
                     |> Roster.determineNextSithToFetch
-                    |> Expect.equal ( expectedRoster, 5678 )
+                    |> Expect.equal ( expectedRoster, Just 5678 )
         ]
