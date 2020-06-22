@@ -39,7 +39,7 @@ init : () -> ( Model, Cmd Msg )
 init flag =
     ( Roster.empty
     , Http.get
-        { url = "https://flux-challenge-dark-jedis.glitch.me/dark-jedis/3616"
+        { url = "http://localhost:3000/dark-jedis/3616"
         , expect = Http.expectJson SithReceived sithDecoder
         }
     )

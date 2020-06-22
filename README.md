@@ -2,13 +2,31 @@
 
 A solution to [flux-challenge](https://github.com/staltz/flux-challenge) written in Elm.
 
+## First time setup
+
+From the root of the repo:
+
+```
+$ yarn && cd backend && yarn
+```
+
 ## Starting the app
 
-The app is started automatically by Glitch. Click "Show" at the top and then
-either open the app in a new window or next to the code.
+You need to start both the backend and the frontend server.
 
-`https://flux-challenge-dark-jedis.glitch.me/dark-jedis/3616`
+The frontend server, responsible for serving Elm code:
 
-If you see an error about the app failing to start, try making a small change in `package.json`,
-like adding a trailing space to one of the scripts or something. It triggers reinstallation of the
-whole project and usually helps. This is a Glitch related problem.
+```
+$ yarn start
+```
+
+The backend server, responsible for serving siths & planets server:
+
+```
+$ cd backend && yarn start
+```
+
+## Solution
+
+To view the complete solution to this challenge, start the servers and then go to
+[http://localhost:8000/solution/staltz/](http://localhost:8000/solution/staltz/).
