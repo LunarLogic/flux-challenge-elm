@@ -30,6 +30,18 @@ Responsible for serving siths & planets server.
 $ cd backend && yarn start
 ```
 
+## Running tests
+
+```
+$ yarn elm-test
+```
+
+### Automatically re-run tests on code changes
+
+```
+$ yarn elm-test --watch
+```
+
 ## Formatting the Elm code
 
 `yarn format` formats the code using [elm-format](https://github.com/avh4/elm-format). You can set
