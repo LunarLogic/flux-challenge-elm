@@ -52,12 +52,13 @@ add sith roster =
 
 determineNextSithToFetch : Roster -> ( Roster, Maybe Int )
 determineNextSithToFetch roster =
-    -- roster
-    --     |> Array.set 3 (Loading Array.get 3 roster)
     let
         nextSith =
             Array.get 3 roster
     in
     case nextSith of
-        Reserved sithId ->
-            Array.set 3 (Loading sithId) roster
+        Just (Reserved sithId) ->
+            ( Array.set 3 (Loading sithId) roster, Just sithId )
+
+        _ ->
+            ( roster, Nothing )
