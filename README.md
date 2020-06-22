@@ -7,7 +7,7 @@ A solution to [flux-challenge](https://github.com/staltz/flux-challenge) written
 From the root of the repo:
 
 ```
-$ yarn && cd backend && yarn
+$ yarn && cd backend && yarn && cd ..
 ```
 
 ## Starting the app
