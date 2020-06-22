@@ -12,7 +12,8 @@ $ yarn && cd backend && yarn && cd ..
 
 ## Starting the app
 
-You need to start both the backend and the frontend server.
+You need to start both the backend and the frontend server. After starting them, the app is going to
+be available under [http://localhost:8000](http://localhost:8000).
 
 ### The frontend server
 
