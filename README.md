@@ -14,13 +14,17 @@ $ yarn && cd backend && yarn
 
 You need to start both the backend and the frontend server.
 
-The frontend server, responsible for serving Elm code:
+### The frontend server
+
+Responsible for serving Elm code.
 
 ```
 $ yarn start
 ```
 
-The backend server, responsible for serving siths & planets server:
+### The backend server
+
+Responsible for serving siths & planets server.
 
 ```
 $ cd backend && yarn start
