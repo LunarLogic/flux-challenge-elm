@@ -50,10 +50,21 @@ update msg model =
     case msg of
         SithReceived (Ok sith) ->
             let
-                ( roster, _ ) =
+                ( roster, maybeSithId ) =
                     Roster.add sith model
+
+                cmd =
+                    case maybeSithId of
+                        Just sithId ->
+                            Http.get
+                                { url = "http://localhost:3000/dark-jedis/" ++ String.fromInt sithId
+                                , expect = Http.expectJson SithReceived sithDecoder
+                                }
+
+                        Nothing ->
+                            Cmd.none
             in
-            ( roster, Cmd.none )
+            ( roster, cmd )
 
         SithReceived (Err _) ->
             ( model, Cmd.none )
