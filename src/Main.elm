@@ -49,7 +49,11 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         SithReceived (Ok sith) ->
-            ( Roster.add sith model, Cmd.none )
+            let
+                ( roster, _ ) =
+                    Roster.add sith model
+            in
+            ( roster, Cmd.none )
 
         SithReceived (Err _) ->
             ( model, Cmd.none )
