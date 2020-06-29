@@ -38,16 +38,17 @@ empty =
 -- the first sith in the middle.
 
 
-add : Sith -> Roster -> Roster
+add : Sith -> Roster -> ( Roster, Maybe Int )
 add sith roster =
     if roster == empty then
         roster
             |> Array.set 2 (Occupied sith)
             |> Array.set 1 (Reserved sith.masterId)
             |> Array.set 3 (Reserved sith.apprenticeId)
+            |> determineNextSithToFetch
 
     else
-        roster
+        ( roster, Nothing )
 
 
 determineNextSithToFetch : Roster -> ( Roster, Maybe Int )

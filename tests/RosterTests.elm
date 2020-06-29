@@ -29,40 +29,11 @@ addTests =
                             [ Empty
                             , Reserved 1234
                             , Occupied sith
-                            , Reserved 5678
-                            , Empty
-                            ]
-                in
-                Roster.empty
-                    |> Roster.add sith
-                    |> Expect.equal expectedRoster
-        ]
-
-
-determineNextSithToFetchTests : Test
-determineNextSithToFetchTests =
-    describe "determineNextSithToFetch"
-        [ test "add Loading instead of Reserved" <|
-            \_ ->
-                let
-                    sith =
-                        { name = "Darth Sidious"
-                        , homeworld = "Lorem Ipsum"
-                        , masterId = 1234
-                        , apprenticeId = 5678
-                        }
-
-                    expectedRoster =
-                        Array.fromList
-                            [ Empty
-                            , Reserved 1234
-                            , Occupied sith
                             , Loading 5678
                             , Empty
                             ]
                 in
                 Roster.empty
                     |> Roster.add sith
-                    |> Roster.determineNextSithToFetch
                     |> Expect.equal ( expectedRoster, Just 5678 )
         ]
