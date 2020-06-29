@@ -1,4 +1,4 @@
-module Roster exposing (Cell(..), Roster, Sith, add, determineNextSithToFetch, empty)
+module Roster exposing (Cell(..), Roster, Sith, add, empty)
 
 -- https://package.elm-lang.org/packages/elm/core/latest/Array
 
