@@ -36,4 +36,26 @@ addTests =
                 Roster.empty
                     |> Roster.add sith
                     |> Expect.equal ( expectedRoster, Just 5678 )
+        , test "places apprentice of the first sith in the right place" <|
+            \_ ->
+                let
+                    sith =
+                        { name = "Darth Sidious"
+                        , homeworld = "Lorem Ipsum"
+                        , masterId = 1234
+                        , apprenticeId = 5678
+                        }
+
+                    expectedRoster =
+                        Array.fromList
+                            [ Empty
+                            , Reserved 1234
+                            , Occupied sith
+                            , Occupied apprentice
+                            , Loading 6789
+                            ]
+                in
+                Roster.empty
+                    |> Roster.add sith
+                    |> Expect.equal ( expectedRoster, Just 5678 )
         ]
