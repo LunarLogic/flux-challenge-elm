@@ -25,7 +25,7 @@ $ yarn start
 
 ### The backend server
 
-Responsible for serving siths & planets server.
+Responsible for serving siths & planets.
 
 ```
 $ cd backend && yarn start
