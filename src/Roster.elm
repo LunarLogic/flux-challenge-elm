@@ -23,6 +23,7 @@ type Cell
 type alias Sith =
     { name : String
     , homeworld : String
+    , id : Int
     , masterId : Int
     , apprenticeId : Int
     }

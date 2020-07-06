@@ -20,6 +20,7 @@ addTests =
                     sith =
                         { name = "Darth Sidious"
                         , homeworld = "Lorem Ipsum"
+                        , id = 4321
                         , masterId = 1234
                         , apprenticeId = 5678
                         }
@@ -42,8 +43,17 @@ addTests =
                     sith =
                         { name = "Darth Sidious"
                         , homeworld = "Lorem Ipsum"
+                        , id = 4321
                         , masterId = 1234
                         , apprenticeId = 5678
+                        }
+
+                    apprentice =
+                        { name = "Darth Vader"
+                        , homeworld = "Tattooine"
+                        , id = 5678
+                        , masterId = 4321
+                        , apprenticeId = 6789
                         }
 
                     expectedRoster =
@@ -57,5 +67,6 @@ addTests =
                 in
                 Roster.empty
                     |> Roster.add sith
-                    |> Expect.equal ( expectedRoster, Just 5678 )
+                    |> Roster.add apprentice
+                    |> Expect.equal ( expectedRoster, Just 6789 )
         ]

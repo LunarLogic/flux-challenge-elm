@@ -28,9 +28,10 @@ main =
 
 sithDecoder : D.Decoder Sith
 sithDecoder =
-    D.map4 Sith
+    D.map5 Sith
         (D.field "name" D.string)
         (D.field "homeworld" (D.field "name" D.string))
+        (D.field "id" D.int)
         (D.field "master" (D.field "id" D.int))
         (D.field "apprentice" (D.field "id" D.int))
 
