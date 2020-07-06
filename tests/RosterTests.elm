@@ -67,6 +67,7 @@ addTests =
                 in
                 Roster.empty
                     |> Roster.add sith
+                    |> Tuple.first
                     |> Roster.add apprentice
                     |> Expect.equal ( expectedRoster, Just 6789 )
         ]

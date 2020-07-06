@@ -3,6 +3,7 @@ module Roster exposing (Cell(..), Roster, Sith, add, empty)
 -- https://package.elm-lang.org/packages/elm/core/latest/Array
 
 import Array exposing (Array)
+import Array.Helpers
 
 
 type alias Roster =
@@ -49,6 +50,10 @@ add sith roster =
             |> determineNextSithToFetch
 
     else
+        let
+            indexOfLoadingSith =
+                Array.Helpers.indexOf (Loading sith.id) roster
+        in
         ( roster, Nothing )
 
 
