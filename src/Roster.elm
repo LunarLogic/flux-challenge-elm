@@ -54,7 +54,13 @@ add sith roster =
             indexOfLoadingSith =
                 Array.Helpers.indexOf (Loading sith.id) roster
         in
-        ( roster, Nothing )
+        case indexOfLoadingSith of
+            Nothing ->
+                ( roster, Nothing )
+
+            Just index ->
+                Array.set index (Occupied sith) roster
+                    |> determineNextSithToFetch
 
 
 determineNextSithToFetch : Roster -> ( Roster, Maybe Int )
