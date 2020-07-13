@@ -77,6 +77,16 @@ add sith roster =
                     |> determineNextSithToFetch
 
 
+reserveNeighbourSith : Int -> Int -> Roster -> Roster
+reserveNeighbourSith index id roster =
+    case Array.get index roster of
+        Just Empty ->
+            Array.set index (Reserved id) roster
+
+        _ ->
+            roster
+
+
 determineNextSithToFetch : Roster -> ( Roster, Maybe Int )
 determineNextSithToFetch roster =
     let
