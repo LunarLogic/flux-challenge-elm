@@ -74,6 +74,8 @@ add sith roster =
 
             Just index ->
                 Array.set index (Occupied sith) roster
+                    |> reserveNeighbourSith (index + 1) sith.apprenticeId
+                    |> reserveNeighbourSith (index - 1) sith.masterId
                     |> determineNextSithToFetch
 
 
@@ -89,6 +91,7 @@ reserveNeighbourSith index id roster =
 
 determineNextSithToFetch : Roster -> ( Roster, Maybe Int )
 determineNextSithToFetch roster =
+    -- TODO https://package.elm-lang.org/packages/elm-community/list-extra/latest/List-Extra#findIndex
     let
         nextSith =
             Array.get 3 roster
