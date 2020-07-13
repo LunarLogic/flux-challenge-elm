@@ -38,6 +38,20 @@ empty =
 
 -- For now handle only the case where the roster is empty and we're adding
 -- the first sith in the middle.
+--
+-- The final algorithm should look more or less like this:
+--
+-- (add)
+-- 1. If the roster is empty, put the sith in the middle and go to point 4.
+-- 2. If it's not empty, then look for Loading value with the ID of the given Sith.
+-- 3. Replace (Loading id) with (Occupied sith).
+-- 4. If places in the roster above and below that sith are Empty, replace them with Reserved and
+--    the appropriate IDs of a master and an apprentice.
+-- (determineNextSithToFetch)
+-- 5. Check if the roster includes any (Loading id) values. If it does, then return (roster,
+--    Nothing).
+-- 6. If it doesn't, find the first (Reserved id) value in reverse order, replace it with (Loading
+--    id) and return that ID in the tuple (roster, Just id).
 
 
 add : Sith -> Roster -> ( Roster, Maybe Int )
