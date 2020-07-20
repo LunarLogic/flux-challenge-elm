@@ -93,12 +93,20 @@ determineNextSithToFetch : Roster -> ( Roster, Maybe Int )
 determineNextSithToFetch roster =
     -- TODO https://package.elm-lang.org/packages/elm-community/list-extra/latest/List-Extra#findIndex
     let
-        nextSith =
-            Array.get 3 roster
+        isReserved : Cell -> Bool
+        isReserved cell =
+            cell == Reserved
     in
-    case nextSith of
-        Just (Reserved sithId) ->
-            ( Array.set 3 (Loading sithId) roster, Just sithId )
+    Debug.todo "test"
 
-        _ ->
-            ( roster, Nothing )
+
+
+-- let
+--     nextSith =
+--         Array.get 3 roster
+-- in
+-- case nextSith of
+--     Just (Reserved sithId) ->
+--         ( Array.set 3 (Loading sithId) roster, Just sithId )
+--     _ ->
+--         ( roster, Nothing )
