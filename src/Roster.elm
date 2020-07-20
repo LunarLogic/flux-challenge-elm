@@ -94,24 +94,36 @@ determineNextSithToFetch : Roster -> ( Roster, Maybe Int )
 determineNextSithToFetch roster =
     -- TODO https://package.elm-lang.org/packages/elm-community/list-extra/latest/List-Extra#findIndex
     let
-        isReserved : Cell -> Bool
-        isReserved cell =
-            case cell of
-                Reserved _ ->
+        isReserved indexedCell =
+            case indexedCell of
+                ( _, Reserved _ ) ->
                     True
 
                 _ ->
                     False
-        maybeIndex = List.Extra.findIndex isReserved (List.reverse (Array.toList roster))
-    nextSith =
-        Array.get 3 roster
-    in
-        case nextSith of
-            Just (Reserved sithId) ->
-                ( Array.set 3 (Loading sithId) roster, Just sithId )
-            _ ->
-                ( roster, Nothing )
 
+        maybeIndex =
+            roster
+                |> Array.toIndexedList
+                |> List.reverse
+                |> List.Extra.find isReserved
+                |> Maybe.map Tuple.first
+    in
+    case maybeIndex of
+        Just index ->
+            let
+                nextSith =
+                    Array.get index roster
+            in
+            case nextSith of
+                Just (Reserved sithId) ->
+                    ( Array.set index (Loading sithId) roster, Just sithId )
+
+                _ ->
+                    ( roster, Nothing )
+
+        Nothing ->
+            ( roster, Nothing )
 
 
 
