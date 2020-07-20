@@ -4,6 +4,7 @@ module Roster exposing (Cell(..), Roster, Sith, add, empty)
 
 import Array exposing (Array)
 import Array.Helpers
+import List.Extra
 
 
 type alias Roster =
@@ -95,9 +96,22 @@ determineNextSithToFetch roster =
     let
         isReserved : Cell -> Bool
         isReserved cell =
-            cell == Reserved
+            case cell of
+                Reserved _ ->
+                    True
+
+                _ ->
+                    False
+        maybeIndex = List.Extra.findIndex isReserved (List.reverse (Array.toList roster))
+    nextSith =
+        Array.get 3 roster
     in
-    Debug.todo "test"
+        case nextSith of
+            Just (Reserved sithId) ->
+                ( Array.set 3 (Loading sithId) roster, Just sithId )
+            _ ->
+                ( roster, Nothing )
+
 
 
 
